@@ -3,48 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Hub - Dashboard</title>
+    <title>Teardrop Portal - Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Employee Hub</h1>
-            <button id="logout" onclick="logout()">Logout</button>
-        </header>
+    <div class="dashboard-container">
+        <h1>Welcome to the Dashboard</h1>
+        <p>Select an option below to get started.</p>
 
-        <nav class="sidebar">
-            <h2>Workspaces</h2>
-            <ul>
-                <li><button onclick="showSection('announcements')">Announcements</button></li>
-                <li><button onclick="showSection('privateMessages')">Private Messages</button></li>
-            </ul>
-        </nav>
-
-        <main>
-            <section id="announcements" class="content-section">
-                <h2>Announcements</h2>
-                <div id="announcementList" class="announcement-list"></div>
-            </section>
-
-            <section id="privateMessages" class="content-section" style="display: none;">
-                <h2>Private Messages</h2>
-                <div class="user-list">
-                    <button onclick="selectUser('Mia')">Mia</button>
-                    <button onclick="selectUser('Ryder')">Ryder</button>
-                    <button onclick="selectUser('Emma')">Emma</button>
-                </div>
-                <div id="messageArea" class="message-area" style="display: none;">
-                    <h3>Chat with <span id="selectedUser"></span></h3>
-                    <div id="messages" class="chat-messages"></div>
-                    <input type="text" id="messageInput" placeholder="Type a message...">
-                    <button onclick="sendMessage()">Send</button>
-                </div>
-            </section>
-        </main>
+        <div class="menu-section">
+            <div class="menu-item" onclick="goTo('activity.html')">
+                <i class="fas fa-chart-line"></i>
+                <span>Activity</span>
+            </div>
+            <div class="menu-item" onclick="goTo('chat.html')">
+                <i class="fas fa-comments"></i>
+                <span>Chat</span>
+            </div>
+            <div class="menu-item" onclick="goTo('assignments.html')">
+                <i class="fas fa-tasks"></i>
+                <span>Assignments</span>
+            </div>
+            <div class="menu-item" onclick="goTo('dashboard.html')">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </div>
+        </div>
     </div>
-
+    
     <script src="app.js"></script>
 </body>
 </html>
