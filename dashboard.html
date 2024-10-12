@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Hub - Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -14,31 +15,33 @@
         </header>
 
         <nav class="sidebar">
+            <h2>Workspaces</h2>
             <ul>
-                <li><button onclick="showSection('groupChat')">Group Chat</button></li>
-                <li><button onclick="openAnnouncements()">Announcements</button></li>
+                <li><button onclick="showSection('announcements')">Announcements</button></li>
+                <li><button onclick="showSection('privateMessages')">Private Messages</button></li>
             </ul>
         </nav>
 
         <main>
-            <section id="groupChat" class="content-section">
-                <h2>Group Chat</h2>
-                <div id="chatMessages" class="chat-messages"></div>
-                <input type="text" id="chatInput" placeholder="Type a message...">
-                <button onclick="sendMessage()">Send</button>
+            <section id="announcements" class="content-section">
+                <h2>Announcements</h2>
+                <div id="announcementList" class="announcement-list"></div>
             </section>
 
-            <div id="announcementsModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeAnnouncements()">&times;</span>
-                    <h2>Announcements</h2>
-                    <div id="announcementList" class="announcement-list"></div>
-                    <div id="newAnnouncementSection" style="display: none;">
-                        <input type="text" id="newAnnouncement" placeholder="Add a new announcement...">
-                        <button onclick="addAnnouncement()">Add Announcement</button>
-                    </div>
+            <section id="privateMessages" class="content-section" style="display: none;">
+                <h2>Private Messages</h2>
+                <div class="user-list">
+                    <button onclick="selectUser('Mia')">Mia</button>
+                    <button onclick="selectUser('Ryder')">Ryder</button>
+                    <button onclick="selectUser('Emma')">Emma</button>
                 </div>
-            </div>
+                <div id="messageArea" class="message-area" style="display: none;">
+                    <h3>Chat with <span id="selectedUser"></span></h3>
+                    <div id="messages" class="chat-messages"></div>
+                    <input type="text" id="messageInput" placeholder="Type a message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </section>
         </main>
     </div>
 
