@@ -1,6 +1,7 @@
 const employees = [
     { id: '101', name: 'Alice' },
     { id: '102', name: 'Bob' },
+    { id: '162721', name: 'Admin' }, // Employee with permission to add announcements
     // Add more employees as needed
 ];
 
@@ -37,6 +38,37 @@ function loadDashboard() {
 function displayAnnouncements() {
     const announcementList = document.getElementById('announcementList');
     announcementList.innerHTML = announcements.map(ann => `<p>${ann}</p>`).join('');
+    
+    // Show or hide the new announcement section based on user ID
+    const newAnnouncementSection = document.getElementById('newAnnouncementSection');
+    if (currentUser.id === '162721') {
+        newAnnouncementSection.style.display = 'block';
+    } else {
+        newAnnouncementSection.style.display = 'none';
+    }
+}
+
+function openAnnouncements() {
+    document.getElementById('announcementList').innerHTML = '';
+    displayAnnouncements(); // Refresh announcements when opening modal
+    document.getElementById('announcementsModal').style.display = 'block';
+}
+
+function closeAnnouncements() {
+    document.getElementById('announcementsModal').style.display = 'none';
+}
+
+function addAnnouncement() {
+    const newAnnouncementInput = document.getElementById('newAnnouncement');
+    const newAnnouncement = newAnnouncementInput.value;
+
+    if (newAnnouncement) {
+        announcements.push(newAnnouncement);
+        newAnnouncementInput.value = ''; // Clear input
+        displayAnnouncements(); // Refresh announcements display
+    } else {
+        alert('Please enter an announcement.');
+    }
 }
 
 function sendMessage() {
