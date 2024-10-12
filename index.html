@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Hub</h1>
+    </header>
+    <main>
+        <div id="login">
+            <h2>Login</h2>
+            <input type="text" id="employeeId" placeholder="Enter your Employee ID">
+            <button onclick="login()">Login</button>
+        </div>
+        <div id="announcements">
+            <h2>Announcements</h2>
+            <div id="announcementList"></div>
+        </div>
+        <div id="groupChat">
+            <h2>Group Chat</h2>
+            <div id="chatMessages"></div>
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
