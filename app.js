@@ -101,3 +101,9 @@ function logout() {
 if (document.title.includes('Dashboard')) {
     loadDashboard();
 }
+
+function deleteNotification(button) {
+    // Remove the notification when the delete button is clicked
+    const notificationItem = button.parentElement;
+    notificationItem.remove();
+}
