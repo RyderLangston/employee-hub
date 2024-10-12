@@ -6,83 +6,47 @@ const employees = [
 
 const announcements = [
     "Welcome to the Employee Hub!",
-    "Reminder: Team meeting on Friday at 10 AM.",
+    "Please check your messages regularly.",
 ];
 
 let currentUser = null;
-
-function login() {
-    const employeeId = document.getElementById('employeeId').value;
-    const employee = employees.find(emp => emp.id === employeeId);
-    
-    if (employee) {
-        currentUser = employee;
-        localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Store user in local storage
-        window.location.href = 'dashboard.html'; // Redirect to dashboard
-    } else {
-        alert('Invalid Employee ID');
-    }
-}
 
 function loadDashboard() {
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
         currentUser = JSON.parse(storedUser);
         displayAnnouncements();
-        showSection('groupChat'); // Show group chat section by default
     } else {
         window.location.href = 'index.html'; // Redirect back to login if no user
     }
 }
 
 function showSection(sectionId) {
-    document.getElementById('groupChat').style.display = sectionId === 'groupChat' ? 'block' : 'none';
-    closeAnnouncements(); // Close modal if it's open
+    document.getElementById('announcements').style.display = sectionId === 'announcements' ? 'block' : 'none';
+    document.getElementById('privateMessages').style.display = sectionId === 'privateMessages' ? 'block' : 'none';
+    document.getElementById('messageArea').style.display = 'none'; // Hide message area
 }
 
 function displayAnnouncements() {
     const announcementList = document.getElementById('announcementList');
     announcementList.innerHTML = announcements.map(ann => `<p>${ann}</p>`).join('');
-    
-    // Show or hide the new announcement section based on user ID
-    const newAnnouncementSection = document.getElementById('newAnnouncementSection');
-    if (currentUser.id === '162721') {
-        newAnnouncementSection.style.display = 'block';
-    } else {
-        newAnnouncementSection.style.display = 'none';
-    }
 }
 
-function openAnnouncements() {
-    document.getElementById('announcementList').innerHTML = '';
-    displayAnnouncements(); // Refresh announcements when opening modal
-    document.getElementById('announcementsModal').style.display = 'block';
-}
-
-function closeAnnouncements() {
-    document.getElementById('announcementsModal').style.display = 'none';
-}
-
-function addAnnouncement() {
-    const newAnnouncementInput = document.getElementById('newAnnouncement');
-    const newAnnouncement = newAnnouncementInput.value;
-
-    if (newAnnouncement) {
-        announcements.push(newAnnouncement);
-        newAnnouncementInput.value = ''; // Clear input
-        displayAnnouncements(); // Refresh announcements display
-    } else {
-        alert('Please enter an announcement.');
-    }
+// Select user for private messaging
+function selectUser(userName) {
+    document.getElementById('selectedUser').innerText = userName;
+    document.getElementById('messageArea').style.display = 'block'; // Show message area
+    const messages = document.getElementById('messages');
+    messages.innerHTML = ''; // Clear previous messages
 }
 
 function sendMessage() {
-    const chatInput = document.getElementById('chatInput');
-    const chatMessages = document.getElementById('chatMessages');
-    
-    if (currentUser && chatInput.value) {
-        chatMessages.innerHTML += `<p><strong>${currentUser.name}:</strong> ${chatInput.value}</p>`;
-        chatInput.value = '';
+    const messageInput = document.getElementById('messageInput');
+    const messages = document.getElementById('messages');
+
+    if (currentUser && messageInput.value) {
+        messages.innerHTML += `<p><strong>${currentUser.name} to ${document.getElementById('selectedUser').innerText}:</strong> ${messageInput.value}</p>`;
+        messageInput.value = ''; // Clear input
     } else {
         alert('Please log in to send messages.');
     }
@@ -95,4 +59,5 @@ function logout() {
 
 // Call loadDashboard on dashboard page load
 if (document.title.includes('Dashboard')) {
-    loadDashboard
+    loadDashboard();
+}
