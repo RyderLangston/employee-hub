@@ -3,135 +3,59 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
+    background-color: #007bff; /* Bright blue background */
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    overflow: hidden;
 }
 
-header {
-    background: rgba(0, 123, 255, 0.8);
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-    flex: 0 0 60px;
-}
-
-.sidebar {
-    background: rgba(52, 58, 64, 0.9);
-    color: #fff;
-    flex: 0 0 200px;
-    padding: 10px 0;
-    position: relative;
-}
-
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar li {
-    margin: 10px 0;
-    text-align: center;
-}
-
-.sidebar button {
-    background: none;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: 100%;
-}
-
-.sidebar button:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
+.login-container {
     background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
 
-.content-section {
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+h1 {
     margin-bottom: 20px;
-}
-
-.announcement-list {
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background: #f9f9f9;
-}
-
-.user-list {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-.user-list button {
-    margin: 5px 0;
-    padding: 10px;
-    background: rgba(0, 123, 255, 0.1);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.user-list button:hover {
-    background: rgba(0, 123, 255, 0.2);
-}
-
-.message-area {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    background: #f9f9f9;
-}
-
-.chat-messages {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #007bff;
 }
 
 input[type="text"] {
-    width: calc(100% - 80px);
-    padding: 10px;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #007bff;
     border-radius: 5px;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #0056b3;
+    outline: none;
 }
 
 button {
     background: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 15px;
+    padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-size: 1.1rem;
+    transition: background 0.3s, transform 0.3s;
 }
 
 button:hover {
     background: #0056b3;
+    transform: scale(1.05); /* Slightly enlarge the button */
 }
 
+/* Add some hover effects to the login container */
+.login-container:hover {
+    transform: translateY(-5px); /* Lift the container slightly on hover */
+}
