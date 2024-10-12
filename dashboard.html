@@ -12,10 +12,6 @@
         <button id="logout" onclick="logout()">Logout</button>
     </header>
     <main>
-        <section id="announcements">
-            <h2>Announcements</h2>
-            <div id="announcementList"></div>
-        </section>
         <section id="groupChat">
             <h2>Group Chat</h2>
             <div id="chatMessages"></div>
@@ -23,6 +19,21 @@
             <button onclick="sendMessage()">Send</button>
         </section>
     </main>
+
+    <button id="announcementsButton" onclick="openAnnouncements()">View Announcements</button>
+
+    <div id="announcementsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAnnouncements()">&times;</span>
+            <h2>Announcements</h2>
+            <div id="announcementList"></div>
+            <div id="newAnnouncementSection" style="display: none;">
+                <input type="text" id="newAnnouncement" placeholder="Add a new announcement...">
+                <button onclick="addAnnouncement()">Add Announcement</button>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
