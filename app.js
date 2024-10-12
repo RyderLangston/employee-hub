@@ -1,8 +1,7 @@
 const employees = [
+    { id: '162721', name: 'Ryder' }, // Employee with permission to add announcements
     { id: '834868', name: 'Mia' },
     { id: '091827', name: 'Emma' },
-    { id: '162721', name: 'Ryder' }, // Employee with permission to add announcements
-    // Add more employees as needed
 ];
 
 const announcements = [
