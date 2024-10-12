@@ -178,3 +178,25 @@ ul#notificationList {
     background: #ff1a1a;
 }
 
+/* Logout Button Styles */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-button button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.logout-button button:hover {
+    background-color: #ff1a1a;
+    transform: scale(1.05);
+}
