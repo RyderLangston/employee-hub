@@ -29,9 +29,15 @@ function loadDashboard() {
     if (storedUser) {
         currentUser = JSON.parse(storedUser);
         displayAnnouncements();
+        showSection('groupChat'); // Show group chat section by default
     } else {
         window.location.href = 'index.html'; // Redirect back to login if no user
     }
+}
+
+function showSection(sectionId) {
+    document.getElementById('groupChat').style.display = sectionId === 'groupChat' ? 'block' : 'none';
+    closeAnnouncements(); // Close modal if it's open
 }
 
 function displayAnnouncements() {
@@ -89,5 +95,4 @@ function logout() {
 
 // Call loadDashboard on dashboard page load
 if (document.title.includes('Dashboard')) {
-    loadDashboard();
-}
+    loadDashboard
