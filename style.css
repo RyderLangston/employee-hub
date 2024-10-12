@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('https://example.com/nature-background.jpg'); /* Replace with an actual nature image URL */
+    background-image: url('https://www.bing.com/ck/a?!&&p=8696ea4356d0ade9JmltdHM9MTcyODY5MTIwMCZpZ3VpZD0zNzc3NzA0YS0zOTI4LTY3MWMtMmExNi02NGY2MzgwMTY2ZDkmaW5zaWQ9NTY2Ng&ptn=3&ver=2&hsh=3&fclid=3777704a-3928-671c-2a16-64f6380166d9&u=a1L2ltYWdlcy9zZWFyY2g_cT1uYXR1cmUlMjBpbWFnZSZGT1JNPUlRRlJCQSZpZD1FRUNGQkI3RjQzMjA5MjE1NzFBNTM5REI0NTlDQUNGRTlEMUVDMjQy&ntb=1'); /* Replace with an actual nature image URL */
     background-size: cover;
     background-position: center;
     display: flex;
