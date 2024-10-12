@@ -107,3 +107,9 @@ function deleteNotification(button) {
     const notificationItem = button.parentElement;
     notificationItem.remove();
 }
+
+function logout() {
+    // Add your logout logic here (e.g., clear session, redirect to login page)
+    alert("You have been logged out");
+    window.location.href = 'login.html'; // Redirect to the login page
+}
