@@ -124,3 +124,57 @@ button:hover {
     transform: translateY(-5px); /* Lift the container slightly on hover */
 }
 
+
+
+/* Activity Feed Styles */
+.activity-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto; /* Center the container */
+}
+
+h1 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+ul#notificationList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 123, 255, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+.notification span {
+    font-size: 1rem;
+    color: #333;
+}
+
+.delete-button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-button:hover {
+    background: #ff1a1a;
+}
+
