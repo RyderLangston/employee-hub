@@ -304,3 +304,19 @@ h1 {
 .login-container button:hover {
     background: #0056b3;
 }
+
+
+#sosButton {
+    padding: 15px 30px;
+    background: #ff3b3b; /* Red background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#sosButton:hover {
+    background: #d90000; /* Darker red on hover */
+}
