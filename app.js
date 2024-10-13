@@ -102,3 +102,63 @@ if (document.title.includes('Dashboard')) {
 
 
 }
+
+
+// Sample data structure for conversations
+let conversations = {}; // Store conversations by employee ID
+
+function sendMessage() {
+    const employeeId = document.getElementById('employeeId').value;
+    const message = document.getElementById('messageInput').value;
+
+    if (employeeId && message) {
+        // Add message to conversation
+        if (!conversations[employeeId]) {
+            conversations[employeeId] = []; // Initialize conversation
+        }
+        conversations[employeeId].push({ message, sender: "Me" });
+
+        // Clear the input fields
+        document.getElementById('messageInput').value = '';
+        document.getElementById('employeeId').value = '';
+
+        // Update the conversation list
+        updateConversationList(employeeId);
+    } else {
+        alert('Please enter both Employee ID and message.');
+    }
+}
+
+function updateConversationList(employeeId) {
+    const conversationList = document.getElementById('conversationList');
+    conversationList.innerHTML = ''; // Clear previous messages
+
+    if (conversations[employeeId]) {
+        conversations[employeeId].forEach(msg => {
+            const msgElement = document.createElement('div');
+            msgElement.textContent = `${msg.sender}: ${msg.message}`;
+            conversationList.appendChild(msgElement);
+        });
+    }
+}
+
+// Function to add a new contact (this can be expanded for real functionality)
+function addContact() {
+    const newContactId = prompt("Enter Employee ID to add:");
+    if (newContactId) {
+        alert(`Contact ${newContactId} added!`);
+        // Here, you can implement logic to save the new contact
+    }
+}
+
+// Function to block a user (this can be expanded for real functionality)
+function blockUser(employeeId) {
+    if (confirm(`Are you sure you want to block user ${employeeId}?`)) {
+        // Add logic to block the user
+        alert(`User ${employeeId} blocked.`);
+    }
+}
+
+function goTo(page) {
+    window.location.href = page; // Redirect to the specified page
+}
