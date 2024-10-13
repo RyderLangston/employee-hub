@@ -92,9 +92,7 @@ function sendMessage() {
     }
 }
 
-function logout() {
-    localStorage.removeItem('currentUser'); // Clear the stored user
-    window.location.href = 'index.html'; // Redirect back to login
+
 }
 
 // Call loadDashboard on dashboard page load
@@ -102,14 +100,5 @@ if (document.title.includes('Dashboard')) {
     loadDashboard();
 }
 
-function deleteNotification(button) {
-    // Remove the notification when the delete button is clicked
-    const notificationItem = button.parentElement;
-    notificationItem.remove();
-}
 
-function logout() {
-    // Add your logout logic here (e.g., clear session, redirect to login page)
-    alert("You have been logged out");
-    window.location.href = 'login.html'; // Redirect to the login page
 }
