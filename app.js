@@ -220,3 +220,53 @@ function enableSiteInteractions() {
         element.disabled = false;
     });
 }
+
+function initiateLockdown() {
+    // Change the entire site's background to red
+    document.body.style.backgroundColor = 'red';
+    document.body.style.color = 'white';
+
+    // Play the alarm sound
+    const alarmSound = document.getElementById('alarmSound');
+    alarmSound.play(); // Start playing the sound
+
+    // Disable all interactions
+    disableSiteInteractions();
+
+    // Create a custom error message
+    const errorMessage = document.createElement('div');
+    errorMessage.id = 'lockdownMessage';
+    errorMessage.style.position = 'fixed';
+    errorMessage.style.top = '50%';
+    errorMessage.style.left = '50%';
+    errorMessage.style.transform = 'translate(-50%, -50%)';
+    errorMessage.style.padding = '20px';
+    errorMessage.style.fontSize = '24px';
+    errorMessage.style.zIndex = '1000'; // Ensure it's on top
+    errorMessage.innerHTML = 'LOCKDOWN INITIATED!';
+
+    document.body.appendChild(errorMessage);
+
+    // Automatically end lockdown after 30 seconds
+    setTimeout(endLockdown, 30000);
+}
+
+function endLockdown() {
+    // Stop the alarm sound
+    const alarmSound = document.getElementById('alarmSound');
+    alarmSound.pause(); // Pause the sound
+    alarmSound.currentTime = 0; // Reset the sound to the beginning
+
+    // Reset site appearance
+    document.body.style.backgroundColor = '';
+    document.body.style.color = '';
+
+    // Remove the lockdown message
+    const errorMessage = document.getElementById('lockdownMessage');
+    if (errorMessage) {
+        document.body.removeChild(errorMessage);
+    }
+
+    // Re-enable all interactions
+    enableSiteInteractions();
+}
