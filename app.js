@@ -162,3 +162,25 @@ function blockUser(employeeId) {
 function goTo(page) {
     window.location.href = page; // Redirect to the specified page
 }
+
+
+
+// Employee ID mapping
+const employeeMapping = {
+    "162721": "Ryder",
+    "834868": "Mia",
+    "091827": "Emma"
+};
+
+function login() {
+    const employeeId = document.getElementById('employeeId').value;
+
+    // Check if the entered Employee ID is valid
+    if (employeeMapping[employeeId]) {
+        alert(`Welcome, ${employeeMapping[employeeId]}!`);
+        // Redirect to the dashboard based on Employee ID
+        window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+    } else {
+        alert('Invalid Employee ID. Please try again.');
+    }
+}
