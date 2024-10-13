@@ -164,23 +164,59 @@ function goTo(page) {
 }
 
 
+function initiateLockdown() {
+    // Change the entire site's background to red
+    document.body.style.backgroundColor = 'red';
+    document.body.style.color = 'white';
+    
+    // Disable all interactions
+    disableSiteInteractions();
 
-// Employee ID mapping
-const employeeMapping = {
-    "162721": "Ryder",
-    "834868": "Mia",
-    "091827": "Emma"
-};
+    // Create a custom error message
+    const errorMessage = document.createElement('div');
+    errorMessage.id = 'lockdownMessage';
+    errorMessage.style.position = 'fixed';
+    errorMessage.style.top = '50%';
+    errorMessage.style.left = '50%';
+    errorMessage.style.transform = 'translate(-50%, -50%)';
+    errorMessage.style.padding = '20px';
+    errorMessage.style.fontSize = '24px';
+    errorMessage.style.zIndex = '1000'; // Ensure it's on top
+    errorMessage.innerHTML = 'LOCKDOWN INITIATED!';
 
-function login() {
-    const employeeId = document.getElementById('employeeId').value;
+    document.body.appendChild(errorMessage);
 
-    // Check if the entered Employee ID is valid
-    if (employeeMapping[employeeId]) {
-        alert(`Welcome, ${employeeMapping[employeeId]}!`);
-        // Redirect to the dashboard based on Employee ID
-        window.location.href = 'dashboard.html'; // Redirect to the dashboard page
-    } else {
-        alert('Invalid Employee ID. Please try again.');
+    // Automatically end lockdown after 30 seconds
+    setTimeout(endLockdown, 30000);
+}
+
+function disableSiteInteractions() {
+    // Disable buttons and inputs
+    const elements = document.querySelectorAll('button, input, textarea, select');
+    elements.forEach(element => {
+        element.disabled = true;
+    });
+}
+
+function endLockdown() {
+    // Reset site appearance
+    document.body.style.backgroundColor = '';
+    document.body.style.color = '';
+    
+    // Remove the lockdown message
+    const errorMessage = document.getElementById('lockdownMessage');
+    if (errorMessage) {
+        document.body.removeChild(errorMessage);
     }
+
+    // Re-enable all interactions
+    enableSiteInteractions();
+}
+
+function enableSiteInteractions() {
+    // Re-enable buttons and inputs
+    const elements = document.querySelectorAll('button, input, textarea, select');
+    elements.forEach(element => {
+        element.disabled = false;
+    });
 }
