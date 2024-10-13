@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teardrop Portal - Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Chat</h1>
+        
+        <div id="conversationList" class="conversation-list">
+            <!-- Conversation history will be dynamically added here -->
+        </div>
 
+        <div class="message-input">
+            <input type="text" id="employeeId" placeholder="Enter Employee ID" />
+            <input type="text" id="messageInput" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <!-- Floating button to add new contacts -->
+        <div class="add-contact">
+            <button onclick="addContact()">+</button>
+        </div>
+    </div>
+
+    <!-- Bottom navigation menu -->
+    <div class="bottom-menu">
+        <div class="menu-item" onclick="goTo('dashboard.html')">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </div>
+        <div class="menu-item" onclick="goTo('activity.html')">
+            <i class="fas fa-chart-line"></i>
+            <span>Activity</span>
+        </div>
+        <div class="menu-item active" onclick="goTo('chat.html')">
+            <i class="fas fa-comments"></i>
+            <span>Chat</span>
+        </div>
+        <div class="menu-item" onclick="goTo('assignments.html')">
+            <i class="fas fa-tasks"></i>
+            <span>Assignments</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
