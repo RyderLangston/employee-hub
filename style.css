@@ -277,3 +277,30 @@ h1 {
 .add-contact button:hover {
     background: #218838; 
 }
+
+
+.login-container {
+    text-align: center;
+    margin-top: 100px; /* Center the login container */
+}
+
+.login-container input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+.login-container button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #0056b3;
+}
